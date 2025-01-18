@@ -1,0 +1,100 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run -d chrome
+
+## exception
+
+ProcessException: ProcessException: %1 is not a valid Win32 application.
+
+  Command: "C:\Users\hp EliteBook 840 G3\AppData\Local\Google\Chrome\Application\chrome.exe" --user-data-dir=C:\Users\HPELIT~1\AppData\Local\Temp\flutter_tools.c85834d9\flutter_tools_chrome_device.4bbbee97 --remote-debugging-port=8732 --disable-background-timer-throttling --disable-extensions --disable-popup-blocking --bwsi --no-first-run --no-default-browser-check --disable-default-apps --disable-translate http://localhost:8727
+
+```
+#0      _ProcessImpl._start (dart:io-patch/process_patch.dart:402:33)
+#1      Process.start (dart:io-patch/process_patch.dart:38:20)
+#2      LocalProcessManager.start (package:process/src/interface/local_process_manager.dart:42:22)
+#3      ErrorHandlingProcessManager.start.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:699:24)
+#4      _run (package:flutter_tools/src/base/error_handling_io.dart:569:20)
+#5      ErrorHandlingProcessManager.start (package:flutter_tools/src/base/error_handling_io.dart:698:12)
+#6      ChromiumLauncher._spawnChromiumProcess (package:flutter_tools/src/web/chrome.dart:272:53)
+#7      ChromiumLauncher.launch (package:flutter_tools/src/web/chrome.dart:230:35)
+<asynchronous suspension>
+#8      ChromiumDevice.startApp (package:flutter_tools/src/web/web_device.dart:145:17)
+<asynchronous suspension>
+#9      ResidentWebRunner.run.<anonymous closure> (package:flutter_tools/src/isolated/resident_web_runner.dart:360:9)
+<asynchronous suspension>
+#10     asyncGuard.<anonymous closure> (package:flutter_tools/src/base/async_guard.dart:111:24)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.24.4, on Microsoft Windows [Version 10.0.19045.5247], locale en-US)
+    [32m•[39m Flutter version 3.24.4 on channel stable at C:\Users\hp EliteBook 840 G3\flutter\flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision 603104015d (3 months ago), 2024-10-24 08:01:25 -0700
+    [32m•[39m Engine revision db49896cf2
+    [32m•[39m Dart version 3.5.4
+    [32m•[39m DevTools version 2.37.3
+
+[32m[✓][39m Windows Version (Installed version of Windows is version 10 or higher)
+
+[33m[!][39m Android toolchain - develop for Android devices (Android SDK version 34.0.0)
+    [32m•[39m Android SDK at C:\Users\hp EliteBook 840 G3\AppData\Local\Android\sdk
+    [31m✗[39m cmdline-tools component is missing
+      Run `path/to/sdkmanager --install "cmdline-tools;latest"`
+      See https://developer.android.com/studio/command-line for more details.
+    [31m✗[39m Android license status unknown.
+      Run `flutter doctor --android-licenses` to accept the SDK licenses.
+      See https://flutter.dev/to/windows-android-setup for more details.
+
+[32m[✓][39m Chrome - develop for the web
+    [32m•[39m Chrome at C:\Users\hp EliteBook 840 G3\AppData\Local\Google\Chrome\Application\chrome.exe
+
+[31m[✗][39m Visual Studio - develop Windows apps
+    [31m✗[39m Visual Studio not installed; this is necessary to develop Windows apps.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components
+
+[32m[✓][39m Android Studio (version 2024.2)
+    [32m•[39m Android Studio at C:\Program Files\Android\Android Studio
+    [32m•[39m Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    [32m•[39m Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    [32m•[39m Java version OpenJDK Runtime Environment (build 21.0.3+-12282718-b509.11)
+
+[32m[✓][39m VS Code (version 1.81.0)
+    [32m•[39m VS Code at C:\Users\hp EliteBook 840 G3\AppData\Local\Programs\Microsoft VS Code
+    [32m•[39m Flutter extension version 3.102.0
+
+[31m[☠][39m Connected device (the doctor check crashed)
+    [31m✗[39m Due to an error, the doctor check did not complete. If the error message below is not helpful, please let us know about
+      this issue at https://github.com/flutter/flutter/issues.
+    [31m✗[39m Error: Unable to run "adb", check your Android SDK installation and ANDROID_HOME environment variable: C:\Users\hp
+      EliteBook 840 G3\AppData\Local\Android\sdk\platform-tools\adb.exe
+      Error details: Process exited abnormally with exit code 259:
+
+    [32m•[39m #0      throwToolExit (package:flutter_tools/src/base/common.dart:10:3)
+      #1      AndroidDevices.pollingGetDevices (package:flutter_tools/src/android/android_device_discovery.dart:75:7)
+      <asynchronous suspension>
+      #2      PollingDeviceDiscovery._populateDevices (package:flutter_tools/src/device.dart:548:36)
+      <asynchronous suspension>
+      #3      Future.wait.<anonymous closure> (dart:async/future.dart:534:21)
+      <asynchronous suspension>
+      #4      DeviceManager.refreshAllDevices (package:flutter_tools/src/device.dart:218:40)
+      <asynchronous suspension>
+      #5      DeviceValidator.validate (package:flutter_tools/src/doctor.dart:715:34)
+      <asynchronous suspension>
+      #6      Future.any.onValue (dart:async/future.dart:628:5)
+      <asynchronous suspension>
+
+
+[32m[✓][39m Network resources
+    [32m•[39m All expected network resources are available.
+
+[33m![39m Doctor found issues in 3 categories.
+```
